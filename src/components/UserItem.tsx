@@ -3,12 +3,13 @@ import {IUser} from "../types/types";
 import {FC} from "react";
 
 interface UserItemProps {
-    user: IUser
+    user: IUser;
+    onClick: (user: IUser) => void;
 }
 
-const UserItem: FC<UserItemProps> = ({user}) => {
+const UserItem: FC<UserItemProps> = ({user, onClick}) => {
     return (
-        <div style={{padding: 10, border: '1px solid gray'}}>
+        <div  onClick={() => onClick(user)} style={{padding: 10, border: '1px solid gray', cursor: 'pointer'}}>
              {user.name} проживает в городе {user.address.city} на улице {user.address.street}
         </div>
     );
