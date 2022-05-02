@@ -8,6 +8,7 @@ export enum CardVariant {
 // Здесь мы объявляем, какой тип данных используется в компоненте Card
 // ? - указывает, что этот параметр не обязательный
 // В React 18 children нужно указывать в интерфейсе как JSX.Element
+// https://metanit.com/web/typescript/3.3.php - интерфейсы
 interface CardProps {
     width?: string;
     height?: string;
