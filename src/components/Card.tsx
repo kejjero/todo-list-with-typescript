@@ -5,13 +5,20 @@ export enum CardVariant {
     primary='primary'
 }
 
+// Здесь мы объявляем, какой тип данных используется в компоненте Card
+// ? - указывает, что этот параметр не обязательный
+// В React 18 children нужно указывать в интерфейсе как JSX.Element
 interface CardProps {
     width?: string;
     height?: string;
-    variant: CardVariant
-    children?: JSX.Element
+    variant: CardVariant;
+    children?: JSX.Element;
+    // как передавать функции в интерфейсе
+    // после "=>" указываем, что должна возвращать функция (число, строка, void)
+    // onClick: (num: number) => void;
 }
 
+// FC - FunctionComponent
 const Card: FC<CardProps> =
     ({
          width,
@@ -19,8 +26,12 @@ const Card: FC<CardProps> =
          variant,
          children,
     }) => {
+
     return (
-        <div style={{width,height, border: '1px solid #333'}}>
+        <div style={{width,height, border: variant === CardVariant.outlined ? '1px solid #333' : 'none',
+            background: variant === CardVariant.primary ? 'lightgray' : '',
+        }}
+        >
             {children}
         </div>
     )
